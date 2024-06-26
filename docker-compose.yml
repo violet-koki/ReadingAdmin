@@ -13,7 +13,7 @@ services:
     depends_on:
       - db
     volumes:
-      - ./src/:/var/www/html
+      - ./src/laravel/:/var/www/html
     environment:
       - DB_CONNECTION=pgsql
       - DB_HOST=db
@@ -31,7 +31,7 @@ services:
     depends_on:
       - app
     volumes:
-      - ./src/:/var/www/html
+      - ./src/laravel/:/var/www/html
 
   db:
     build:
