@@ -19,7 +19,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'email',
+        'mail',
         'password',
     ];
 
@@ -42,4 +42,23 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    /**
+     * ユーザインスタンス生成
+     */
+    public static function create(
+        int $userId,
+        string $nickName,
+        string $name,
+        string $mail,
+        string $password
+    ): self {
+        return (new self())->fill([
+            'user_id' => $userId,
+            'nick_name' => $nickName,
+            'name' => $name,
+            'mail' => $mail,
+            'password' => $password,
+        ]);
+    }
 }

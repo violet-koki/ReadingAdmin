@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Laravel Vue</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.ts'])
 </head>
 
 <body>
-    <div id="app"></div>
+    <div id="app">こんにちわ</div>
 </body>
 
 </html>
