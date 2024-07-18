@@ -28,5 +28,5 @@ Route::middleware('auth:sanctum')->group(function () {
 //Auth不要
 Route::group(['prefix' => 'user'], function () {
     //ユーザ登録
-    Route::post('register', [UserRegisterController::class, 'register']);
+    Route::post('register', [UserRegisterController::class, 'userRegister']);
 });

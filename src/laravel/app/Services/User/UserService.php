@@ -25,10 +25,10 @@ class UserService
     public function userRegister(array $data): void
     {
         $user = User::create(...[
-            'user_id' => $data['user_id'],
-            'nick_name' => $data['nick_name'],
+            'nickName' => $data['nick_name'],
             'name' => $data['name'],
             'mail' => $data['mail'],
+            'gender' => $data['gender'],
             'password' => $data['password'],
         ]);
         $this->userCommand->save($user);

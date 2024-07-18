@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Consts\Gender;
+use Illuminate\Validation\Rule;
 
 class UserRegisterRequest extends FormRequest
 {
@@ -11,7 +13,7 @@ class UserRegisterRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return true;
+        return $this->path() == 'api/user/register';
     }
 
     /**
@@ -22,7 +24,10 @@ class UserRegisterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            "name" => ['required', 'string'],
+            "mail" => ['required', 'string'],
+            "gender" => ['required', Rule::enum(Gender::class)],
+            "password" => ['required', 'string'],
         ];
     }
 }

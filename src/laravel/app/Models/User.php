@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Consts\Gender;
 
 class User extends Authenticatable
 {
@@ -18,8 +19,10 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'nickName',
         'name',
         'mail',
+        'gender',
         'password',
     ];
 
@@ -41,23 +44,24 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+        'gender' => Gender::class
     ];
 
     /**
      * ユーザインスタンス生成
      */
     public static function create(
-        int $userId,
         string $nickName,
         string $name,
         string $mail,
+        Gender $gender,
         string $password
     ): self {
         return (new self())->fill([
-            'user_id' => $userId,
             'nick_name' => $nickName,
             'name' => $name,
             'mail' => $mail,
+            'gender' => $gender,
             'password' => $password,
         ]);
     }
