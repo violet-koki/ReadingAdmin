@@ -24,6 +24,7 @@ class UserRegisterRequest extends FormRequest
     public function rules(): array
     {
         return [
+            "nick_name" => ['required', 'string'],
             "name" => ['required', 'string'],
             "mail" => ['required', 'string'],
             "gender" => ['required', Rule::enum(Gender::class)],

@@ -33,3 +33,4 @@ class UserQuery
         return User::query()->where($searchParams)->first();
     }
 }
+

@@ -3,6 +3,7 @@ namespace App\Services\User;
 
 use App\Models\User;
 use App\Command\User\UserCommand;
+use App\Consts\Gender;
 
 
 class UserService
@@ -28,7 +29,7 @@ class UserService
             'nickName' => $data['nick_name'],
             'name' => $data['name'],
             'mail' => $data['mail'],
-            'gender' => $data['gender'],
+            'gender' => Gender::from($data['gender']),
             'password' => $data['password'],
         ]);
         $this->userCommand->save($user);

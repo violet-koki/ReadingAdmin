@@ -16,7 +16,7 @@ const data = reactive({
 
 const router = useRouter();
 const signup = async () => {
-  await apiClient.post('/api/users/register', data)
+  await apiClient.post('/api/user/register', data)
   router.push({ name: 'UserArticleList'})
 }
 </script>
