@@ -4,7 +4,7 @@ const routes = [
     {
         path: '/user/signup',
         name: 'UserSignUp',
-        component: () => import('@/pages/users/SignUp.vue')
+        component: () => import('@/pages/user/SignUp.vue')
     }
 ]
 

@@ -7,10 +7,10 @@ import apiClient from './../../libs/apiClient';
 
 
 const data = reactive({
-  user_id: '',
   nick_name: '',
   name: '',
   mail: '',
+  gender: '',
   password: '',
 })
 
@@ -24,11 +24,11 @@ const signup = async () => {
 <template>
   <div>
     <h1>ユーザー新規登録</h1>
-    <input placeholder="UserID" type="text" v-model="data.user_id"/>
-    <input placeholder="NickName" type="text" v-model="data.nick_name"/>
-    <input placeholder="Username" type="text" v-model="data.name"/>
-    <input placeholder="Mail" type="text" v-model="data.mail"/>
-    <input placeholder="Password" type="password" v-model="data.password"/>
+    <input placeholder="NickName" type="text" v-model="data.nick_name" />
+    <input placeholder="Name" type="text" v-model="data.name" />
+    <input placeholder="Mail" type="text" v-model="data.mail" />
+    <input placeholder="Gender" type="int" v-model="data.gender" />
+    <input placeholder="Password" type="password" v-model="data.password" />
     <button class="btn" @click="signup">登録</button>
   </div>
 </template>
