@@ -21,6 +21,11 @@ const signup = async () => {
   router.push({ name: 'UserArticleList'})
 }
 
+const registerData = async () => {
+  await apiClient.post('/api/user/register', data)
+  router.push({ name: 'UserArticleList' })
+}
+
 type signUpParams = {
   nick_name : string;
   name : string;
@@ -49,32 +54,38 @@ const signUpInfo = ref<signUpParams>({
     <button class="btn" @click="signup">登録</button>
   </div> -->
   <div>
-  <BButton>Button</BButton>
+    <BButton variant="danger">Button</BButton>
 
-  <BContainer>
-    <BRow>
-      <BCol lg="12">
-        <div class="text-center mt-sm-5 mb-4 text-white-50">
-          <p class="mt-3 fs-15 fw-medium">JBCT MyPage</p>
-        </div>
-      </BCol>
-    </BRow>
+    <BContainer>
+      <BRow>
+        <BCol lg="12">
+          <div class="text-center mt-sm-5 mb-4 text-white-50">
+            <p class="mt-3 fs-15 fw-medium">JBCT MyPage</p>
+          </div>
+        </BCol>
+      </BRow>
 
-    <BRow class="justify-content-center">
-      <BCol md="8" lg="6" xl="5">
-        <BCard no-body class="mt-4">
-          <BCardBody class="p-4">
-            <div class="p-2 mt-4">
-              <form>
-                <div class="mb-3">
-                  <input id="email" v-model="signUpInfo.mail" type="email" class="form-control" placeholder="メールアドレス" />
-                  <div class="invalid-feedback">
-                    <span></span>
+      <BRow class="justify-content-center">
+        <BCol md="8" lg="6" xl="5">
+          <BCard no-body class="mt-4">
+            <BCardBody class="p-4">
+              <div class="p-2 mt-4">
+                <form>
+                  <div class="mb-3">
+                    <input id="nick_name" v-model="signUpInfo.nick_name" type="text" placeholder="ニックネーム" />
+                    <input id="name" v-model="signUpInfo.name" type="text" placeholder="名前" />
+                    <input id="mail" v-model="signUpInfo.mail" type="text" placeholder="メールアドレス" />
+                    <input id="gender" v-model="signUpInfo.gender" type="text" placeholder="性別" />
+                    <input id="password" v-model="signUpInfo.password" type="text" placeholder="パスワード" />
+                    <div class="invalid-feedback">
+                      <span></span>
+                    </div>
+                    <BButton @click="registerData">
+                    </BButton>
                   </div>
-                </div>
-              </form>
-            </div>
-            <!-- <div class="mb-3">
+                </form>
+              </div>
+              <!-- <div class="mb-3">
                     <div class="position-relative auth-pass-inputgroup mb-3">
                       <input id="password-input" v-model="loginInfo.password" :type="showPassword ? 'text' : 'password'"
                         class="form-control pe-5" placeholder="パスワード" />
@@ -89,7 +100,7 @@ const signUpInfo = ref<signUpParams>({
                     </div>
                   </div> -->
 
-            <!-- <div class="mt-4">
+              <!-- <div class="mt-4">
                     <InlineDanger dismissible :error-message="props.errorMessage" :error-response="props.errorResponse"
                       @dismiss-error="closeApiError" />
                     <BButton variant="success" class="w-100" type="submit"
@@ -97,29 +108,13 @@ const signUpInfo = ref<signUpParams>({
                       {{ props.processing ? 'ログイン中' : 'ログイン' }}
                     </BButton>
                   </div> -->
-            <!-- </form>
+              <!-- </form>
               </div> -->
-          </BCardBody>
-        </BCard>
-      </BCol>
-      <div class="fs-4">
-        <div class="text-center">
-          <p class="mb-0">
-            <router-link :to="{ name: 'SampleView' }" class="fw-semibold text-primary text-decoration-underline">
-              パスワードを忘れてしまった方はこちら
-            </router-link>
-          </p>
-        </div>
-
-        <!-- TODO 表示期間は2024年7月3日(水)13:00～7月23日(火)15:00 -->
-        <div class="mt-2 text-center">
-          <router-link :to="{ name: 'SampleView' }" class="fw-semibold text-danger text-decoration-underline">
-            「教育セミナー・認定医試験」の申込をはじめてされる方はこちら
-          </router-link>
-        </div>
-      </div>
-    </BRow>
-  </BContainer>
+            </BCardBody>
+          </BCard>
+        </BCol>
+      </BRow>
+    </BContainer>
   </div>
 </template>
 

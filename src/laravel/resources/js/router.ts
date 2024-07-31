@@ -10,6 +10,11 @@ const routes = [
         path: '/user/sample',
         name: 'SampleView',
         component: () => import('@/pages/user/SampleView.vue')
+    },
+    {
+        path: '/user/circle',
+        name: 'Circle',
+        component: () => import('@/pages/user/Circle.vue')
     }
 ]
 
