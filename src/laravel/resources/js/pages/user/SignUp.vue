@@ -66,23 +66,33 @@ const signUpInfo = ref<signUpParams>({
       </BRow>
 
       <BRow class="justify-content-center">
-        <BCol md="8" lg="6" xl="5">
+        <BCol md="8" lg="5" xl="5">
           <BCard no-body class="mt-4">
             <BCardBody class="p-4">
               <div class="p-2 mt-4">
                 <form>
                   <div class="mb-3">
-                    <input id="nick_name" v-model="signUpInfo.nick_name" type="text" placeholder="ニックネーム" />
-                    <input id="name" v-model="signUpInfo.name" type="text" placeholder="名前" />
-                    <input id="mail" v-model="signUpInfo.mail" type="text" placeholder="メールアドレス" />
-                    <input id="gender" v-model="signUpInfo.gender" type="text" placeholder="性別" />
-                    <input id="password" v-model="signUpInfo.password" type="text" placeholder="パスワード" />
-                    <div class="invalid-feedback">
-                      <span></span>
+                    <div class="col-12 mb-2">
+                      <input id="nick_name" v-model="signUpInfo.nick_name" type="text" placeholder="ニックネーム" />
                     </div>
-                    <BButton @click="registerData">
-                    </BButton>
-                  </div>
+                    <div class="col-12 mb-2">
+                      <input id="name" v-model="signUpInfo.name" type="text" placeholder="名前" />
+                    </div>
+                    <div class="col-12 mb-2">
+                      <input id="mail" v-model="signUpInfo.mail" type="text" placeholder="メールアドレス" />
+                    </div>
+                    <div class="col-12 mb-2">
+                      <input id="gender" v-model="signUpInfo.gender" type="text" placeholder="性別" />
+                    </div>
+                    <div class="col-12 mb-2">
+                      <input id="password" v-model="signUpInfo.password" type="text" placeholder="パスワード" />
+                    </div>
+                    <div class="invalid-feedback">
+                        <span></span>
+                      </div>
+                      <BButton @click="registerData">
+                      </BButton>
+                    </div>
                 </form>
               </div>
               <!-- <div class="mb-3">
