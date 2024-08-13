@@ -15,6 +15,11 @@ const routes = [
         path: '/user/circle',
         name: 'Circle',
         component: () => import('@/pages/user/Circle.vue')
+    },
+    {
+        path: 'user/post',
+        name: 'UserNewPost',
+        component: () => import('@/pages/user/NewPost.vue')
     }
 ]
 
