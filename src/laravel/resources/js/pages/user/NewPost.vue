@@ -1,19 +1,26 @@
 <script setup lang="ts">
-import { reactive } from 'vue'
-import { useRouter } from 'vue-router';
-import apiClient from './../../libs/apiClient';
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
 
-const searchQuery = ref('');
-const searchBooks = async () => {
-    if (!searchQuery.value) return;
-    const response = async () => {
-        await apiClient.get('https://www.googleapis.com/books/v1/volumes', {
-            params: {
-                q: searchQuery.value,
-                key: ''
-            }
-        })
-    }
-}
+const title = ref('');
+const authors = ref('');
+const publishedDate = ref('');
+const image = ref('');
+
+onMounted(() => {
+    const route = useRoute();
+    title.value = route.query.title as string;
+    authors.value = route.query.authors as string;
+    publishedDate.value = route.query.publishedDate as string;
+    image.value = route.query.image as string;
+});
 </script>
+
+<template>
+    <div>
+        <h1>{{ title }}</h1>
+        <p>著者: {{ authors }}</p>
+        <p>出版日: {{ publishedDate }}</p>
+        <img :src="image" v-if="image"></img>
+    </div>
+</template>

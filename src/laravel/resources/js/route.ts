@@ -17,8 +17,13 @@ const routes = [
         component: () => import('@/pages/user/Circle.vue')
     },
     {
-        path: 'user/post',
-        name: 'UserNewPost',
+        path: '/user/search-for-post',
+        name: 'SearchForPost',
+        component: () => import('@/pages/user/SearchForPost.vue')
+    },
+        {
+        path: '/user/new-post',
+        name: 'NewPost',
         component: () => import('@/pages/user/NewPost.vue')
     }
 ]
