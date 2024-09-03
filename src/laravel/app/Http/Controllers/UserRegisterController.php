@@ -23,6 +23,7 @@ class UserRegisterController extends Controller
     public function userRegister(UserRegisterRequest $request): Response
     {
         $this->userService->userRegister($request->validated());
+
         return response('', 204);
     }
 }

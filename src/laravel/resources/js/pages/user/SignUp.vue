@@ -1,30 +1,27 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
 import { routerKey } from 'vue-router';
-import axios from '../../libs/apiClient'
+import axios from 'axios'
 import { useRouter } from 'vue-router'
 import apiClient from './../../libs/apiClient';
 import { ref } from 'vue';
 
-
-const data = reactive({
-  nick_name: '',
-  name: '',
-  mail: '',
-  gender: '',
-  password: '',
-})
-
 const router = useRouter();
-const signup = async () => {
-  await apiClient.post('/api/user/register', data)
-  router.push({ name: 'UserArticleList'})
-}
 
 const registerData = async () => {
+  const data = signUpInfo.value
   await apiClient.post('/api/user/register', data)
   router.push({ name: 'UserArticleList' })
+    .then(response => {
+      // 成功時の処理
+    })
+    .catch(error => {
+      if (error.response) {
+        console.error('Error data:', error.response.data);
+      }
+    })
 }
+
 
 type signUpParams = {
   nick_name : string;
